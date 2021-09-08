@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_CHARACTERS } from "../../features/query";
 
-import { List } from "antd";
+import { Image, List } from "antd";
 import style from "./charactersList.module.scss";
 import CardCharacter from "../../components/Card";
 
@@ -31,10 +31,14 @@ export type TCharacterInfo = {
     };
   };
 };
+
 const CharactersList = () => {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
   return (
     <>
+      <div className={style.logoContainer}>
+        <div className={style.logo}></div>
+      </div>
       <h1 className={style.titleList}>List of Characters</h1>
       <List
         loading={loading}

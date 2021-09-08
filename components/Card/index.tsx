@@ -52,7 +52,7 @@ const CardCharacter = ({
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-
+  console.log(filmConnection?.films);
   return (
     <>
       <Card className={style.container} hoverable>
@@ -70,7 +70,7 @@ const CardCharacter = ({
       </Card>
 
       <Modal
-        style={{}}
+        width={400}
         className={style.modal}
         title={name}
         visible={isModalVisible}
