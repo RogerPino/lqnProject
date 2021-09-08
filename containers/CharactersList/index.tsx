@@ -8,27 +8,27 @@ import style from "./charactersList.module.scss";
 import CardCharacter from "../../components/Card";
 
 export type TCharacterInfo = {
-  name?: string;
-  birthYear?: string;
-  gender?: string;
-  height?: number;
-  mass?: number;
-  hairColor?: string;
-  skinColor?: string;
-  homeworld?: {
+  name: string;
+  birthYear: string;
+  gender: string;
+  height: number;
+  mass: number;
+  hairColor: string;
+  skinColor: string;
+  homeworld: {
     name: string;
   };
-  filmConnection?: {
-    totalCount?: number;
-    films?: {
-      title?: string;
-      director?: string;
-      planetConnection?: {
-        planets?: {
-          name?: string;
-        };
+  filmConnection: {
+    totalCount: number;
+    films: {
+      title: string;
+      director: string;
+      planetConnection: {
+        planets: {
+          name: string;
+        }[];
       };
-    };
+    }[];
   };
 };
 
@@ -56,11 +56,7 @@ const CharactersList = () => {
         dataSource={data?.allPeople.people}
         renderItem={(item: TCharacterInfo) => (
           <List.Item>
-            <CardCharacter
-              name={item.name}
-              birthYear={item.birthYear}
-              {...item}
-            ></CardCharacter>
+            <CardCharacter {...item}></CardCharacter>
           </List.Item>
         )}
       />

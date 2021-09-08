@@ -1,30 +1,42 @@
 import React, { useState } from "react";
-import { Card, Typography, Button, Modal } from "antd";
+import {
+  Card,
+  Typography,
+  Button,
+  Modal,
+  Table,
+  Tag,
+  Space,
+  Col,
+  Row,
+} from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import style from "./card.module.scss";
 const { Meta } = Card;
+const { Title } = Typography;
+
 export type TCardCharacter = {
-  name?: string;
-  birthYear?: string;
-  gender?: string;
-  height?: number;
-  mass?: number;
-  hairColor?: string;
-  skinColor?: string;
-  homeworld?: {
+  name: string;
+  birthYear: string;
+  gender: string;
+  height: number;
+  mass: number;
+  hairColor: string;
+  skinColor: string;
+  homeworld: {
     name: string;
   };
-  filmConnection?: {
-    totalCount?: number;
-    films?: {
-      title?: string;
-      director?: string;
-      planetConnection?: {
-        planets?: {
-          name?: string;
-        };
+  filmConnection: {
+    totalCount: number;
+    films: {
+      title: string;
+      director: string;
+      planetConnection: {
+        planets: {
+          name: string;
+        }[];
       };
-    };
+    }[];
   };
 };
 
@@ -52,7 +64,25 @@ const CardCharacter = ({
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  console.log(filmConnection?.films);
+  console.log(filmConnection);
+
+  const columns = [
+    {
+      title: "Title",
+      dataIndex: "title",
+      key: "filmConnection.films.title",
+    },
+    {
+      title: "Director",
+      dataIndex: "director",
+      key: "filmConnection.films.director",
+    },
+    {
+      title: "Planets",
+      dataIndex: "planets",
+      key: "filmConnection.films.planetConnection.planet.name",
+    },
+  ];
   return (
     <>
       <Card className={style.container} hoverable>
@@ -70,30 +100,40 @@ const CardCharacter = ({
       </Card>
 
       <Modal
-        width={400}
-        className={style.modal}
-        title={name}
+        width={600}
+        className={style.antModalContent}
+        title={<Title>{name}</Title>}
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <div className={style.modalInfoContainer}>
-          <div className={style.modalInfoContainerLeft}>
+        <Row gutter={[8, 0]}>
+          <Col span={16}>
             <p>Total Movies: {filmConnection?.totalCount}</p>
             <p>Birth Year: {birthYear}</p>
             <p>Home World: {homeworld?.name}</p>
             <p>Gender: {gender}</p>
+          </Col>
+          <Col span={8}>
             <p>Height: {height}</p>
             <p>Mass: {mass}</p>
             <p>Hair Color: {hairColor}</p>
             <p>Skin Color: {skinColor}</p>
-          </div>
-          <div className={style.modalInfoContainerLeft}>
-            <p>Movies: {filmConnection?.films?.title}</p>
-            <p>Planets: {filmConnection?.films?.planetConnection}</p>
-            <p>Director: {filmConnection?.films?.director}</p>
-          </div>
-        </div>
+          </Col>
+        </Row>
+        <Row>
+          <Table
+            columns={columns}
+            dataSource={filmConnection?.films.map((film) => ({
+              key: film.title,
+              title: film.title,
+              director: film.director,
+              planets: film.planetConnection.planets
+                .map((planet) => planet.name)
+                .join(", "),
+            }))}
+          ></Table>
+        </Row>
       </Modal>
     </>
   );

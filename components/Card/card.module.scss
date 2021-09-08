@@ -39,16 +39,29 @@
    background-image: linear-gradient(to right, #314755 0%, #0003a8cb  51%, #070bca  100%)/* change the direction of the change here */
  }
  .modalInfoContainer{
-  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
   font-weight: 700;
   font-size: 1.2em;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
  }
+
+.modalInfoContainerTop{
+ display: flex;
+ } 
  .modalInfoContainerLeft{
-  width: "200px"
+
  }
  .modalInfoContainerRight{
  
+ }
+ .modalInfoContainerBottom{
+ 
   width: 200px
  }
+
+ .antModalContent{
+   border-radius: 20px;
+   background-color: black;
+ }
+ 
