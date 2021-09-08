@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import CharactersList from "../containers/CharactersList";
-import style from "../styles/listPage.module.scss";
+import style from "../styles/wrapperPage.module.scss";
 
 const Home: NextPage = () => {
   return (

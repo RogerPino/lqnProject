@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 
 import { useQuery } from "@apollo/client";
 import { GET_CHARACTERS } from "../../features/query";
@@ -8,32 +8,59 @@ import style from "./charactersList.module.scss";
 import CardCharacter from "../../components/Card";
 
 export type TCharacterInfo = {
-  name: string;
+  name?: string;
+  birthYear?: string;
+  gender?: string;
+  height?: number;
+  mass?: number;
+  hairColor?: string;
+  skinColor?: string;
+  homeworld?: {
+    name: string;
+  };
+  filmConnection?: {
+    totalCount?: number;
+    films?: {
+      title?: string;
+      director?: string;
+      planetConnection?: {
+        planets?: {
+          name?: string;
+        };
+      };
+    };
+  };
 };
 const CharactersList = () => {
   const { loading, error, data } = useQuery(GET_CHARACTERS);
-  console.log(data?.allPeople.people);
   return (
-    <List
-      loading={loading}
-      className={style.container}
-      grid={{
-        gutter: 16,
-        xs: 1,
-        sm: 2,
-        md: 4,
-        lg: 4,
-        xl: 4,
-        xxl: 6,
-        column: 8,
-      }}
-      dataSource={data?.allPeople.people}
-      renderItem={(item: TCharacterInfo) => (
-        <List.Item>
-          <CardCharacter name={item.name}></CardCharacter>
-        </List.Item>
-      )}
-    />
+    <>
+      <h1 className={style.titleList}>List of Characters</h1>
+      <List
+        loading={loading}
+        className={style.container}
+        grid={{
+          gutter: 16,
+          xs: 1,
+          sm: 2,
+          md: 3,
+          lg: 4,
+          xl: 4,
+          xxl: 6,
+          column: 8,
+        }}
+        dataSource={data?.allPeople.people}
+        renderItem={(item: TCharacterInfo) => (
+          <List.Item>
+            <CardCharacter
+              name={item.name}
+              birthYear={item.birthYear}
+              {...item}
+            ></CardCharacter>
+          </List.Item>
+        )}
+      />
+    </>
   );
 };
 

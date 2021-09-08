@@ -1,13 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
 .container{
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
    box-sizing: border-box;
-   padding: 0px 20px;
- 
+   border-width: 0px; 
+   border-radius: 10px;
+   margin: 5px;
+   background-color: rgba($color: #f7f7f7a8, $alpha: 0.8);
+   background-image: linear-gradient(to right, #d3d7e633 -20%, #ffffff75  51%, #ffffff0a  90%);
+}
+.container:hover{
+    background-position: right center; 
+    -webkit-transform: scale(1.5);
+    background-size: 200% auto;
+    color: white;
+    transform: scale(1.1);
+    transition: 0.8s;
+    background-image: linear-gradient(to right, #d3d7e6 25%, #ffffff  50%, #ffffff  100%);
 }
 
-.btn{
-    margin-top: 10px;
-}
+.btnGrad { 
+  background-image: linear-gradient(to right, #021246 0%, #0003a8cb  51%, #314755  100%);
+  margin-top: 10px;
+  transition: 0.7s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 8px;
+  border-width: 0px;
+ }
+
+ .btnGrad:hover {
+   background-size: 200% auto;
+   color: white;
+   background-position: right center; 
+   background-image: linear-gradient(to right, #314755 0%, #0003a8cb  51%, #070bca  100%)/* change the direction of the change here */
+ }
+ .modalInfoContainer{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-between;
+ }
+ .modalInfoContainerLeft{
+  width: "200px"
+ }
+ .modalInfoContainerRight{
+ 
+  width: 200px
+ }
