@@ -1,0 +1,27 @@
+
+.titleList{
+    color: white;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+
+.logoContainer{
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    background-image: url("../../styles/static/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    width: 350px;
+    position: sticky;
+    top: 0;
+    margin-top: 20px;
+
+}
+.logo:hover{ transform: scale(1.05);
+    transition: 0.4s;}
