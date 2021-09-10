@@ -84,6 +84,8 @@ const CardCharacter = ({
           {name.map((name) => {
             return (
               <Tag
+                //////////////////////////////////////
+                key={name.title}
                 style={{ borderRadius: "8px" }}
                 color="geekblue"
                 icon={<GlobalOutlined />}
