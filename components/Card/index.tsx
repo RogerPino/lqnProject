@@ -10,7 +10,7 @@ import {
   Col,
   Row,
 } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, GlobalOutlined } from "@ant-design/icons";
 import style from "./card.module.scss";
 const { Meta } = Card;
 const { Title } = Typography;
@@ -64,8 +64,6 @@ const CardCharacter = ({
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-  console.log(filmConnection);
-
   const columns = [
     {
       title: "Title",
@@ -80,7 +78,23 @@ const CardCharacter = ({
     {
       title: "Planets",
       dataIndex: "planets",
-      key: "filmConnection.films.planetConnection.planet.name",
+      key: "filmConnection.films.planetConnection.planets.name",
+      render: (name: typeof filmConnection.films) => (
+        <>
+          {name.map((name) => {
+            return (
+              <Tag
+                style={{ borderRadius: "8px" }}
+                color="geekblue"
+                icon={<GlobalOutlined />}
+                className={style.tag}
+              >
+                {name}
+              </Tag>
+            );
+          })}
+        </>
+      ),
     },
   ];
   return (
@@ -90,6 +104,7 @@ const CardCharacter = ({
           title={name}
           description={"Total Movies " + filmConnection?.totalCount}
         />
+        {console.log(name)}
         <Button
           onClick={() => showModal()}
           className={style.btnGrad}
@@ -100,37 +115,59 @@ const CardCharacter = ({
       </Card>
 
       <Modal
-        width={600}
-        className={style.antModalContent}
-        title={<Title>{name}</Title>}
+        className={style.modalInfoContainer}
+        width={900}
+        cancelButtonProps={{
+          style: { display: "none" },
+        }}
+        okButtonProps={{
+          style: {
+            background: "#0306b9ce",
+            borderWidth: "0px",
+            borderRadius: "5px",
+            width: "90px",
+            fontSize: "15px",
+            height: "35px",
+          },
+        }}
+        title={<Title style={{ marginLeft: "20px" }}>{name}</Title>}
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <Row gutter={[8, 0]}>
-          <Col span={16}>
+        <Row
+          style={{ marginLeft: "20px", marginRight: "20px", fontSize: "1.2em" }}
+          gutter={[8, 0]}
+        >
+          <Col span={6}>
             <p>Total Movies: {filmConnection?.totalCount}</p>
             <p>Birth Year: {birthYear}</p>
+          </Col>
+          <Col span={8}>
             <p>Home World: {homeworld?.name}</p>
             <p>Gender: {gender}</p>
           </Col>
-          <Col span={8}>
+          <Col span={4}>
             <p>Height: {height}</p>
             <p>Mass: {mass}</p>
+          </Col>
+          <Col span={6}>
             <p>Hair Color: {hairColor}</p>
             <p>Skin Color: {skinColor}</p>
           </Col>
         </Row>
         <Row>
           <Table
+            className={style.table}
             columns={columns}
+            pagination={false}
             dataSource={filmConnection?.films.map((film) => ({
               key: film.title,
               title: film.title,
               director: film.director,
-              planets: film.planetConnection.planets
-                .map((planet) => planet.name)
-                .join(", "),
+              planets: film.planetConnection.planets.map(
+                (planet) => planet.name
+              ),
             }))}
           ></Table>
         </Row>

@@ -40,28 +40,36 @@
  }
  .modalInfoContainer{
   text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1.2em;
-  display: flex;
-  flex-direction: column;
- }
+  font-weight: 500;
+  box-sizing: border-box;
+  :global{
+    .ant-modal-header{
+       background-color:white;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
 
-.modalInfoContainerTop{
- display: flex;
- } 
- .modalInfoContainerLeft{
+     }
+     .ant-modal-content{
+      background-color: transparent;
+    }
+    .ant-modal-body{
+      background-color: white;
+      padding:10px 20px 0px 20px;
+    
+    }
+    .ant-modal-footer{
+      background-color: white;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
 
+  }
  }
- .modalInfoContainerRight{
- 
+ .tag{
+   margin-top: 10px;
+   padding: 5px 10px;
+   margin-right: 20px;
  }
- .modalInfoContainerBottom{
- 
-  width: 200px
- }
-
- .antModalContent{
-   border-radius: 20px;
-   background-color: black;
- }
- 
+ .table{
+  font-size: 1em;
+}
