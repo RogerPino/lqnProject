@@ -1,0 +1,80 @@
+ .modalInfoContainer{
+   align-self: flex-start;
+  text-transform: uppercase;
+  font-weight: 500;
+
+
+  .title{
+    margin: 0 ;
+    margin-left: 20px;
+    padding: 7px 0;
+    font-size: 22px;
+   }
+   .titleTable{
+    margin: 0 ;
+    margin-left: 20px;
+    padding: 7px 0;
+    font-size: 17px;
+   }
+
+  :global{
+     .ant-modal-header{
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 10px 0px;
+      padding-left: 20px;
+     }
+ 
+     .ant-modal-content{
+      background-color: transparent;
+    }
+    .ant-table-cell{
+      padding: 8px 7px;
+    }
+    .ant-modal-body{
+      background-color: white;
+      padding:20px;
+      font-size: 10px;
+    }
+    .ant-modal-footer{
+      background-color: white;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+  }
+ }
+ .tag{
+   margin-top: 7px;
+   margin-right: 20px;
+   font-size: 10px;
+   padding-top: 1px;
+  
+ }
+ .table{
+  :global{
+  thead{
+      background-color: rgba(0, 0, 0, 0.042);
+  }
+  .ant-table-content{
+  th{
+    background-color: rgba(13, 12, 102, 0.042);
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 12px;
+    }
+  }
+  .ant-table-tbody{
+    font-size: 10px;
+    }
+  }
+}   
+
+.containerInfoTop{
+  margin-bottom: 20px;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 12px;
+}

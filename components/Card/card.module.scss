@@ -8,7 +8,7 @@
    box-sizing: border-box;
    border-width: 0px; 
    border-radius: 10px;
-   margin: 5px;
+   margin: 13px;
    background-color: rgba($color: #f7f7f7a8, $alpha: 0.8);
    background-image: linear-gradient(to right, #d3d7e633 -20%, #ffffff75  51%, #ffffff0a  90%);
 }
@@ -18,7 +18,7 @@
     background-size: 200% auto;
     color: white;
     transform: scale(1.1);
-    transition: 0.8s;
+    transition: 0.3s;
     background-image: linear-gradient(to right, #d3d7e6 25%, #ffffff  50%, #ffffff  100%);
 }
 
@@ -38,38 +38,3 @@
    background-position: right center; 
    background-image: linear-gradient(to right, #314755 0%, #0003a8cb  51%, #070bca  100%)/* change the direction of the change here */
  }
- .modalInfoContainer{
-  text-transform: uppercase;
-  font-weight: 500;
-  box-sizing: border-box;
-  :global{
-    .ant-modal-header{
-       background-color:white;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-
-     }
-     .ant-modal-content{
-      background-color: transparent;
-    }
-    .ant-modal-body{
-      background-color: white;
-      padding:10px 20px 0px 20px;
-    
-    }
-    .ant-modal-footer{
-      background-color: white;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
-
-  }
- }
- .tag{
-   margin-top: 10px;
-   padding: 5px 10px;
-   margin-right: 20px;
- }
- .table{
-  font-size: 1em;
-}
