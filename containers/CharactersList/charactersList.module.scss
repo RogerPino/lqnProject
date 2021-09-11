@@ -25,3 +25,11 @@
 }
 .logo:hover{ transform: scale(1.05);
     transition: 0.4s;}
+    .container{
+    
+        @media (max-width: 420px) {
+         display: flex;
+         flex-direction: column;
+          }
+         
+    }

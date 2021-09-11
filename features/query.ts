@@ -3,6 +3,7 @@ export const GET_CHARACTERS = gql`
   query AllPeople {
     allPeople {
       people {
+        id
         name
         birthYear
         gender
@@ -22,6 +23,36 @@ export const GET_CHARACTERS = gql`
               planets {
                 name
               }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const GET_CHARACTER_DETAIL = gql`
+  query Person($id: ID!) {
+    person(id: $id) {
+      id
+      name
+      birthYear
+      gender
+      height
+      mass
+      hairColor
+      skinColor
+      homeworld {
+        name
+      }
+      filmConnection {
+        totalCount
+        films {
+          title
+          director
+          planetConnection {
+            planets {
+              name
             }
           }
         }
