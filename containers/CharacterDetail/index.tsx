@@ -39,7 +39,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
 
   useEffect(() => {
     setIsModalVisible(true);
-  }, []);
+  }, [id]);
   const columns = [
     {
       title: "Title",
@@ -92,24 +92,21 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
           height: "35px",
         },
       }}
-      title={
-        <Title
-          style={{ marginLeft: "20px", padding: "7px 0", fontSize: "1.3em" }}
-        >
-          {data?.person.name}
-        </Title>
-      }
+      title={<Title className={style.title}>{data?.person.name}</Title>}
       visible={isModalVisible}
       onOk={handleOk}
       onCancel={handleCancel}
     >
       <Row className={style.containerInfoTop} gutter={20}>
         <Col span={6}>
-          <p>Total Movies: {data?.person.filmConnection.totalCount}</p>
+          <p>
+            Specie:{" "}
+            {data?.person?.species?.name ? data.person.species.name : " Human"}
+          </p>
           <p>Birth Year: {data?.person.birthYear}</p>
         </Col>
         <Col span={7}>
-          <p>Home World: {data?.person.homeworld.name}</p>
+          <p>Home World: {" " + data?.person.homeworld.name}</p>
           <p>Gender: {data?.person.gender}</p>
         </Col>
         <Col span={5}>
@@ -122,22 +119,27 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
         </Col>
       </Row>
 
-      <Table
-        key={id}
-        bordered={true}
-        loading={tableLoading}
-        className={style.table}
-        columns={columns}
-        pagination={false}
-        dataSource={data?.person.filmConnection?.films.map((film: any) => ({
-          key: film.title,
-          title: film.title,
-          director: film.director,
-          planets: film.planetConnection.planets.map(
-            (planet: any) => planet.name
-          ),
-        }))}
-      ></Table>
+      <div>
+        <Title className={style.titleTable}>
+          Total Movies: {data?.person.filmConnection.totalCount}{" "}
+        </Title>
+        <Table
+          key={id}
+          bordered={true}
+          loading={tableLoading}
+          className={style.table}
+          columns={columns}
+          pagination={false}
+          dataSource={data?.person.filmConnection?.films.map((film: any) => ({
+            key: film.title,
+            title: film.title,
+            director: film.director,
+            planets: film.planetConnection.planets.map(
+              (planet: any) => planet.name
+            ),
+          }))}
+        ></Table>
+      </div>
     </Modal>
   );
 };

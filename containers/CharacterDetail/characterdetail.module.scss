@@ -2,6 +2,21 @@
    align-self: flex-start;
   text-transform: uppercase;
   font-weight: 500;
+
+
+  .title{
+    margin: 0 ;
+    margin-left: 20px;
+    padding: 7px 0;
+    font-size: 22px;
+   }
+   .titleTable{
+    margin: 0 ;
+    margin-left: 20px;
+    padding: 7px 0;
+    font-size: 17px;
+   }
+
   :global{
      .ant-modal-header{
       border-top-left-radius: 20px;
@@ -9,9 +24,7 @@
       padding: 10px 0px;
       padding-left: 20px;
      }
-     .ant-typography{
-       margin: 0 ;
-     }
+ 
      .ant-modal-content{
       background-color: transparent;
     }

@@ -23,6 +23,9 @@ export type TCharacterInfo = {
   homeworld: {
     name: string;
   };
+  species: {
+    name: string;
+  };
   filmConnection: {
     totalCount: number;
     films: {

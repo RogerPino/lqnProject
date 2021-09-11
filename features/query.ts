@@ -45,6 +45,9 @@ export const GET_CHARACTER_DETAIL = gql`
       homeworld {
         name
       }
+      species {
+        name
+      }
       filmConnection {
         totalCount
         films {
