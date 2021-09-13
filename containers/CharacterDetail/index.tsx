@@ -14,10 +14,12 @@ export type TCharacterDetail = {
 };
 
 const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
+  /// Traigo la data
   const { loading, error, data } = useQuery(GET_CHARACTER_DETAIL, {
     variables: { id: id },
   });
 
+  /// Manejo del modal
   const handleOk = () => {
     onCancel();
   };
@@ -25,6 +27,8 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
   const handleCancel = () => {
     onCancel();
   };
+
+  /// Icono de carga en tabla
   const antIcon = (
     <LoadingOutlined style={{ fontSize: 24, color: "#00176F" }} spin />
   );
@@ -49,6 +53,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
       title: "Planets",
       dataIndex: "planets",
       key: "data.filmConnection.films.planetConnection.planets.name",
+      /// Establezco el elemento tag para la visualización de los planetas
       render: (name: any) => (
         <>
           {name.map((name: any) => {
@@ -70,6 +75,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
   ];
 
   return (
+    //// Creo el modal donde se visualizara toda la info del personaje seleccionado
     <Modal
       centered={true}
       className={style.modalInfoContainer}
@@ -92,6 +98,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
       onOk={handleOk}
       onCancel={handleCancel}
     >
+      {/* Utilizo los componentes prdefinidos en antd.design */}
       <Row className={style.containerInfoTop} gutter={20}>
         <Col span={6}>
           <p>

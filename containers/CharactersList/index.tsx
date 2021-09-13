@@ -43,6 +43,7 @@ const CharactersList = () => {
       <List
         loading={tableLoading}
         className={style.container}
+        /// Responsive
         grid={{
           xs: 1,
           sm: 2,
