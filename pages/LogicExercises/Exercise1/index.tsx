@@ -18,26 +18,23 @@ const Exercise1 = () => {
     }
     return number;
   }
+const text =
+  "Develop an algorithm that prints the numbers from 0 to 100. In addition, the word buzz must be printed on the same line if the number is even. If the number is a multiple of 5, the word the word bazz must be printed on the same line.";
 
-  return (
-    <div className={style.mainPageContainer}>
-      <Header />
-      <div className={style.mainContainer}>
-        <h1> Exercise 1</h1>
-        <p>
-          "Desarrolla un algoritmo que imprima los números del 0 al 100.
-          Adicionalmente debe imprimirse en la misma línea la palabra buzz en
-          caso de que el número sea par. Sí el número es múltiplo de 5 debe
-          imprimirse en la misma línea la palabra bazz"
-        </p>
-        <div className={style.container}>
-          {exercise1().map((element, index) => {
-            return <div key={index}>{`${element}`}</div>;
-          })}
-        </div>
+return (
+  <div className={style.mainPageContainer}>
+    <Header />
+    <div className={style.mainContainer}>
+      <h1> Exercise 1</h1>
+      <p>{text}</p>
+      <div className={style.container}>
+        {exercise1().map((element, index) => {
+          return <div key={index}>{`${element}`}</div>;
+        })}
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default Exercise1;
