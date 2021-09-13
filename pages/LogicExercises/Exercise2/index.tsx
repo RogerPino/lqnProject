@@ -114,11 +114,13 @@ const Exercise2 = () => {
   return (
     <div className={style.mainPageContainer}>
       <Header />
-      <div className={style.container}>
+      <div className={style.mainContainer}>
         <h1> Exercise 2</h1>
-        {exercise2().map((element, index) => {
-          return <div key={index}>{`${element}`}</div>;
-        })}
+        <div className={style.container}>
+          {exercise2().map((element, index) => {
+            return <div key={index}>{`${element}`}</div>;
+          })}
+        </div>
       </div>
     </div>
   );

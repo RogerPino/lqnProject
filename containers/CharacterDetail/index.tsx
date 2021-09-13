@@ -18,15 +18,11 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
     variables: { id: id },
   });
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
   const handleOk = () => {
-    setIsModalVisible(false);
     onCancel();
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
     onCancel();
   };
   const antIcon = (
@@ -37,7 +33,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
     spinning: loading,
     indicator: <Spin indicator={antIcon} />,
   };
-
+  /// Modelo de las columnas para la tabla
   const columns = [
     {
       title: "Title",
@@ -141,6 +137,6 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
       </div>
     </Modal>
   );
-};
+};;
 
 export default CharacterDetail;
