@@ -23,8 +23,8 @@ const Exercise1 = () => {
       <h1 className={style.title}>Logic Excercises </h1>
       <div className={style.container}>
         <h3> Exercise 1</h3>
-        {exercise1().map((element) => {
-          return <div>{`${element}`}</div>;
+        {exercise1().map((element, index) => {
+          return <div key={index}>{`${element}`}</div>;
         })}
       </div>
     </div>

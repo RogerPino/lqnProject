@@ -9,6 +9,8 @@ export type TCardCharacter = {
   data: TCharacterInfo;
 };
 
+/// Componente independiente donde se presenta cada personaje 
+
 const { Meta } = Card;
 const CardCharacter = ({
   onClick,
