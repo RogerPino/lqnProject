@@ -111,39 +111,27 @@ const Exercise2 = () => {
     });
     return final_serie;
   }
+const text1 =
+  "Your task in this exercise is as follows: Take the following selection of 70 English Pokemon names (extracted from Wikipedia's list of Pokemon), and generate the/a sequence with the highest possible number of Pokemon names where the subsequent name starts with the final letter of the preceding name. No Pokemon name is to be repeated.";
+const text2 =
+  "audino bagon baltoy banette bidoof braviary bronzor carracosta charmeleon cresselia croagunk darmanitan deino emboar emolga exeggcute gabite girafarig gulpin haxorus heatmor heatran ivysaur jellicent jumpluff kangaskhan kricketune landorus ledyba loudred lumineon lunatone machamp magnezone mamoswine nosepass petilil pidgeotto pikachu pinsir poliwrath poochyena porygon2 porygonz registeel relicanth remoraid rufflet sableye scolipede scrafty seaking sealeo silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask";
 
-  return (
-    <div className={style.mainPageContainer}>
-      <Header />
-      <div className={style.mainContainer}>
-        <h1> Exercise 2</h1>
-        <p>
-          Your task in this exercise is as follows: Take the following selection
-          of 70 English Pokemon names (extracted from Wikipedia's list of
-          Pokemon), and generate the/a sequence with the highest possible number
-          of Pokemon names where the subsequent name starts with the final
-          letter of the preceding name. No Pokemon name is to be repeated.
-        </p>
-        <h3> Pokemos List</h3>
-        <p>
-          audino bagon baltoy banette bidoof braviary bronzor carracosta
-          charmeleon cresselia croagunk darmanitan deino emboar emolga exeggcute
-          gabite girafarig gulpin haxorus heatmor heatran ivysaur jellicent
-          jumpluff kangaskhan kricketune landorus ledyba loudred lumineon
-          lunatone machamp magnezone mamoswine nosepass petilil pidgeotto
-          pikachu pinsir poliwrath poochyena porygon2 porygonz registeel
-          relicanth remoraid rufflet sableye scolipede scrafty seaking sealeo
-          silcoon simisear snivy snorlax spoink starly tirtouga trapinch treecko
-          tyrogue vigoroth vulpix wailord wartortle whismur wingull yamask
-        </p>
-        <div className={style.container}>
-          {exercise2().map((element, index) => {
-            return <div key={index}>{`${element}`}</div>;
-          })}
-        </div>
+return (
+  <div className={style.mainPageContainer}>
+    <Header />
+    <div className={style.mainContainer}>
+      <h1> Exercise 2</h1>
+      <p>{text1}</p>
+      <h3> Pokemos List</h3>
+      <p> {text2}</p>
+      <div className={style.container}>
+        {exercise2().map((element, index) => {
+          return <div key={index}>{`${element}`}</div>;
+        })}
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default Exercise2;
