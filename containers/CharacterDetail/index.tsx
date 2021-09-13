@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Typography, Modal, Row, Col, Tag, Table, Spin } from "antd";
 const { Title } = Typography;
 import { useQuery } from "@apollo/client";
@@ -22,6 +22,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    onCancel();
   };
 
   const handleCancel = () => {
@@ -37,9 +38,6 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
     indicator: <Spin indicator={antIcon} />,
   };
 
-  useEffect(() => {
-    setIsModalVisible(true);
-  }, [id]);
   const columns = [
     {
       title: "Title",
@@ -77,6 +75,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
 
   return (
     <Modal
+      centered={true}
       className={style.modalInfoContainer}
       width={800}
       cancelButtonProps={{
@@ -93,7 +92,7 @@ const CharacterDetail = ({ visible, id, onCancel }: TCharacterDetail) => {
         },
       }}
       title={<Title className={style.title}>{data?.person.name}</Title>}
-      visible={isModalVisible}
+      visible={visible}
       onOk={handleOk}
       onCancel={handleCancel}
     >

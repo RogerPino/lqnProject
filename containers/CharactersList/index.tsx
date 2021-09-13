@@ -11,34 +11,8 @@ import CardCharacter from "../../components/Card";
 
 import CharacterDetail from "../CharacterDetail";
 
-export type TCharacterInfo = {
-  id: string;
-  name: string;
-  birthYear: string;
-  gender: string;
-  height: number;
-  mass: number;
-  hairColor: string;
-  skinColor: string;
-  homeworld: {
-    name: string;
-  };
-  species: {
-    name: string;
-  };
-  filmConnection: {
-    totalCount: number;
-    films: {
-      title: string;
-      director: string;
-      planetConnection: {
-        planets: {
-          name: string;
-        }[];
-      };
-    }[];
-  };
-};
+import { TCharacterInfo } from "../../utils/models/character";
+
 const ROUTE_CHARACTER_ID = "/";
 const CharactersList = () => {
   const [isVisible, setIsVisible] = useState(false);

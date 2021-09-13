@@ -1,0 +1,22 @@
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.navBar{
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    li{
+        align-self: flex-end;
+        margin-right: 20px;
+        &:hover{
+            transform: scale(1.05);
+            transition: 0.4s;
+        }
+        a{
+            color:#ffffff;
+        }
+    }
+}
