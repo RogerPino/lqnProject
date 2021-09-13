@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  basePath: "/character",
+  basePath: "/home",
   async redirects() {
     return [
       {
         source: "/",
-        destination: "/character",
+        destination: "/home",
         permanent: true,
         basePath: false,
       },

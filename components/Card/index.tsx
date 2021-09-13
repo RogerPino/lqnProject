@@ -1,66 +1,35 @@
 import React from "react";
-
-import { Card, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import { Card, Button } from "antd";
+import { TCharacterInfo } from "../../utils/models/character";
 import style from "../Card/card.module.scss";
-const { Meta } = Card;
 
 export type TCardCharacter = {
   onClick: (id: string) => void;
-  data: {
-    id: string;
-    name: string;
-    birthYear: string;
-    gender: string;
-    height: number;
-    mass: number;
-    hairColor: string;
-    skinColor: string;
-    homeworld: {
-      name: string;
-    };
-    filmConnection: {
-      totalCount: number;
-      films: {
-        title: string;
-        director: string;
-        planetConnection: {
-          planets: {
-            name: string;
-          }[];
-        };
-      }[];
-    };
-  };
+  data: TCharacterInfo;
 };
 
+const { Meta } = Card;
 const CardCharacter = ({
   onClick,
-  data: {
-    id,
-    name,
-
-    filmConnection,
-  },
+  data: { id, name, filmConnection },
 }: TCardCharacter) => {
   return (
-    <>
-      <Card className={style.container} hoverable>
-        <Meta
-          title={name}
-          description={"Total Movies " + filmConnection?.totalCount}
-        />
-        <Button
-          onClick={() => {
-            onClick(id);
-          }}
-          className={style.btnGrad}
-          icon={<SearchOutlined />}
-        >
-          See details
-        </Button>
-      </Card>
-    </>
+    <Card className={style.container} hoverable>
+      <Meta
+        title={name}
+        description={`Total Movies :${filmConnection?.totalCount || 0}`}
+      />
+      <Button
+        onClick={() => {
+          onClick(id);
+        }}
+        className={style.btnGrad}
+        icon={<SearchOutlined />}
+      >
+        See details
+      </Button>
+    </Card>
   );
 };
 export default CardCharacter;
